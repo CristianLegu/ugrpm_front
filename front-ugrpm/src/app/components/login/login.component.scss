@@ -1,0 +1,246 @@
+* {
+    font-family: Raleway /* Replace with your custom font */, sans-serif !important;
+    /* Add !important to overwrite all elements */
+    box-sizing: border-box;
+}
+
+.loading {
+    background: rgba(255, 255, 255, 0.75);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    z-index: 6;
+}
+.loading mat-spinner {
+    width: 64pt;
+    height: 64pt;
+    top: calc(38% - 32pt);
+    position: absolute;
+}
+
+:host {
+    background: white;
+    height: 100vh;
+    display: block;
+}
+
+.background {
+    background-image: url("https://hoppedmx.com/images/fondo.jpg");
+    height: 100%;
+    /*display: flex;
+    flex-flow: row;
+    position: fixed;*/
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.hero {
+    flex: 88;
+    background: #303040;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero video {
+    display: block;
+    position: absolute;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.main {
+    flex: 100;
+    background: url("https://noltik.com/lowpoly-bground.webp"); // assets/img/lowpoly-bground.png
+    background-size: cover;
+    background-position: center bottom;
+    position: relative;
+}
+
+.main form {
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 70vh;
+    bottom: 0;
+    margin: auto;
+    height: fit-content;
+    padding: 90px;
+    padding-bottom: 90px;
+    max-width: 480px;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.39);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.39);
+    box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.39);
+}
+
+.main form img {
+    width: 50%;
+    margin-top: 70px;
+    margin-bottom: -90px;
+}
+
+.main form h1 {
+    font-size: 32px;
+    color: #303040;
+    margin-top: 15vh;
+    font-family: quicksand;
+}
+
+.main form p {
+    font-size: 15px;
+    color: #000;
+    line-height: 1.5em;
+    letter-spacing: 0.2px;
+    max-width: 244px;
+    font-family: quicksand;
+    margin-top: 5vh;
+    //margin-bottom: 36px;
+    font-weight: 400;
+}
+
+.main form input {
+    display: block;
+    width: 100%;
+    max-width: 334px;
+    border: none;
+    background: none;
+    height: 28px;
+    margin-bottom: 12px;
+    border-bottom: solid 1px #b0bec5;
+    font-family: quicksand;
+    font-weight: 700;
+    font-size: 14px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main form button {
+    background: #733121;
+    color: #fff;
+    padding: 12px;
+    font-size: 14px;
+    border-radius: 500px;
+    border: none;
+    min-width: 148px;
+    margin-top: 38px;
+    font-family: quicksand;
+    font-weight: 700;
+    font-size: 14px;
+    outline: none;
+    cursor: pointer;
+}
+
+.main .square {
+    --side: 80px;
+    width: var(--side);
+    height: var(--side);
+    background: #007ecb;
+    position: absolute;
+    left: calc(var(--side) * -0.5);
+    top: calc(var(--side) * -0.5);
+    transform: rotate(45deg);
+}
+
+.main .square:nth-of-type(2) {
+    top: auto;
+    bottom: calc(var(--side) * -0.5);
+    transform: rotate(45deg);
+    background: #212040;
+}
+
+.main .logo {
+    background-size: cover;
+    width: 150px;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 24px;
+}
+
+.main a {
+    text-decoration: none;
+    color: #424242;
+    cursor: pointer;
+    display: block;
+    font-family: quicksand;
+    font-weight: 600;
+    font-size: 13px;
+    margin-top: 24px;
+}
+
+// MOBILE
+@media (max-width: 480px) {
+    .hero {
+        display: none;
+    }
+    .logo {
+        margin: 24px;
+        right: auto;
+        left: 50px;
+        margin-left: 0 !important;
+    }
+    .main {
+        .logo {
+            //display: none;
+        }
+        form {
+            //padding: 0 50px;
+        }
+        .langs {
+            margin: 16px;
+            a {
+                margin: 0.5em;
+            }
+        }
+    }
+}
+
+//
+
+.langs {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 40px;
+    display: flex;
+
+    a {
+        margin: 1em;
+        padding: 1em;
+        color: white;
+        background: #303040;
+        box-shadow: 0 0 1em 0 rgba(0, 0, 0, 0.3);
+    }
+}
+
+.bg-img {
+    /* The image used */
+    background-image: url("https://hoppedmx.com/assets/img/construction.webp");
+
+    min-height: 380px;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+/* Add styles to the form container */
+.container {
+    position: absolute;
+    right: 0;
+    margin: 20px;
+    max-width: 300px;
+    padding: 16px;
+    background-color: rgba(255, 255, 255, 0.8);
+}

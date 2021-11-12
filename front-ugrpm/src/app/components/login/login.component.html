@@ -1,0 +1,19 @@
+<div class="background">
+    <div class="hero">
+    </div>
+
+    <div class="main">
+        <form [formGroup]="login" novalidate autocomplete="off" class="container">
+            <img src="https://porcicultoresdemichoacan.com/images/logo.png" width="100%">
+            <h1>Portal para asignación de folios</h1>
+            <p>Iniciar Sesión</p>
+            <input placeholder="Usuario" formControlName="nombreusuario" autocapitalize="none" (keyup.enter)="ingresar">
+            <input placeholder="Contraseña" type="password" formControlName="password" (keyup.enter)="ingresar">
+            <button (click)="ingresar()">Ingresar</button>
+        </form>
+    </div>
+</div>
+
+<div class='loading' *ngIf="loading">
+    <mat-spinner></mat-spinner>
+</div>
