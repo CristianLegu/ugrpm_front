@@ -1,0 +1,100 @@
+spacer {
+    flex: 1 1 auto;
+}
+
+.toolbar {
+    background: #733121;
+    color: white;
+    top: 0; /* Sets the sticky toolbar to be on top */
+    z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+    position: fixed;
+    left: 0;
+    right: 0;
+}
+
+.sidenav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.img {
+    width: 7%;
+}
+
+.user {
+    right: 32px;
+    text-align: right;
+    color: white;
+    line-break: loose;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-left: 10px;
+    margin-left: auto;
+    font-size: smaller;
+}
+
+//Menú
+
+mat-sidenav-content {
+    height: auto; //fit-content;
+}
+mat-sidenav-container {
+    background-color: #fafafa;
+}
+
+.content {
+    padding: 0 8px;
+}
+
+.container {
+    position: relative;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: auto;
+}
+
+.bottom {
+    position: absolute;
+    display: inline-block;
+    bottom: 0;
+    right: 0;
+}
+
+// Extra small devices (portrait phones, less than 576px)
+@media (max-width: 575.88px) {
+    .img {
+        width: 14%;
+    }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+    .img {
+        width: 12%;
+    }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+    .img {
+        width: 10%;
+    }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+    .img {
+        width: 7%;
+    }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+    .img {
+        width: 3%;
+    }
+}

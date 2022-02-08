@@ -1,6 +1,6 @@
 <mat-toolbar class="toolbar">
     <mat-toolbar-row>
-        <span>Usuarios</span>
+        <span>Asociaciones</span>
         <span class="space"></span>
         <span>
             <button mat-button (click)="openItem(0)">
@@ -44,27 +44,20 @@
             </td>
         </ng-container>
 
-        <!-- Usuario Column -->
+        <!-- Dirección Column -->
         <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Usuario </th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Dirección </th>
             <td mat-cell *matCellDef="let row" class="unidad"> {{row.name}} </td>
         </ng-container>
 
-        <!-- Rol Column -->
+        <!-- Email Column -->
         <ng-container matColumnDef="weight">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Rol </th>
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
             <td mat-cell *matCellDef="let row" [style.color]="row.color" class="totales">
                 {{row.weight}}
             </td>
         </ng-container>
 
-        <!-- Symbol Column -->
-        <ng-container matColumnDef="symbol">
-            <th mat-header-cell *matHeaderCellDef mat-sort-header> Rol </th>
-            <td mat-cell *matCellDef="let row" [style.color]="row.color" class="totales">
-                {{row.symbol}}
-            </td>
-        </ng-container>
 
         <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
@@ -105,7 +98,7 @@
                     </mat-toolbar-row>
                 </mat-toolbar>
 
-                <form [formGroup]="usuarioForm" autocomplete="off">
+                <form [formGroup]="asociacionForm" autocomplete="off">
 
                     <mat-form-field style="width: 80%; padding: 10px;">
                         <mat-label>Nombre</mat-label>
@@ -113,40 +106,13 @@
                     </mat-form-field>
 
                     <mat-form-field style="width: 60%; padding: 10px;">
-                        <mat-label>Usuario</mat-label>
-                        <input matInput formControlName="nombreUsuario">
+                        <mat-label>Dirección</mat-label>
+                        <input matInput formControlName="direccion">
                     </mat-form-field>
 
-                    <!--Asociacion-->
                     <mat-form-field style="padding: 10px;">
-                        <mat-label>Asociación</mat-label>
-                        <mat-select formControlName="asociacion" [(value)]=" selected ">
-
-                            <mat-option *ngFor="let asoc of asociaciones " [value]="asoc.value ">
-                                {{asoc.viewValue}}
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
-
-                    <!--Rol-->
-                    <mat-form-field style="padding: 10px;">
-                        <mat-label>Rol</mat-label>
-                        <mat-select formControlName="rol" [(value)]=" selected ">
-
-                            <mat-option *ngFor="let rol of roles " [value]="rol.value ">
-                                {{rol.viewValue}}
-                            </mat-option>
-                        </mat-select>
-                    </mat-form-field>
-
-                    <!--Contraseña-->
-                    <mat-form-field style="padding: 10px;">
-                        <mat-label>Contraseña</mat-label>
-                        <input matInput [type]="hide ? 'password' : 'text' " formControlName="password">
-                        <button mat-icon-button matSuffix (click)="hide=! hide " [attr.aria-label]=" 'Hide password' "
-                            [attr.aria-pressed]="hide ">
-                            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-                        </button>
+                        <mat-label>Email</mat-label>
+                        <input matInput formControlName="email">
                     </mat-form-field>
 
                 </form>

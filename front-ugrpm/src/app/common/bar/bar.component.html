@@ -1,0 +1,59 @@
+<mat-toolbar class="toolbar">
+    <!--*ngIf="isLoggedIn$ | async as isLoggedIn">-->
+    <mat-toolbar-row>
+        <img src="https://porcicultoresdemichoacan.com/images/logo.png" class="img">
+        <h1></h1>
+        <span class="spacer"></span>
+        <label class="user">{{user}}</label>
+        <button mat-icon-button [matMenuTriggerFor]="menu">
+            <mat-icon style="font-size: 35px;">account_circle</mat-icon>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="logout()">
+                <mat-icon>logout</mat-icon>
+                <span>Cerrar Sesión</span>
+            </button>
+        </mat-menu>
+    </mat-toolbar-row>
+</mat-toolbar>
+
+<!--SideNav-->
+<mat-sidenav-container autosize hasBackdrop="false" class="container">
+
+    <mat-sidenav #sidenav [mode]="mode" opened [autoFocus]="true" class="sidenav" fixedInViewport="true"
+        fixedTopGap="60" fixedBottomGap="0">
+        <!-- *ngIf="isLoggedIn$ | async as isLoggedIn">-->
+        <mat-nav-list role="navigation">
+            <a mat-list-item [routerLink]="'./folios'" matTooltip="Folios" matTooltipPosition="right">
+                <mat-icon>assignment</mat-icon>
+                <p *ngIf="showFiller" style="margin: 10px;">Folios</p>
+            </a>
+            <a mat-list-item [routerLink]="'./asociaciones'" matTooltip="Asociaciones"
+                matTooltipPosition="right">
+                <mat-icon>warehouse</mat-icon>
+                <p *ngIf="showFiller" style="margin: 10px;">Asociaciones</p>
+            </a>
+            <a mat-list-item [routerLink]="'./usuarios'" matTooltip="Usuarios" matTooltipPosition="right">
+                <mat-icon>supervisor_account</mat-icon>
+                <p *ngIf="showFiller" style="margin: 10px;">Usuarios</p>
+            </a>
+            <a mat-list-item [routerLink]="'./reporte'" matTooltip="Reportes"
+                matTooltipPosition="right">
+                <mat-icon>dashboard</mat-icon>
+                <p *ngIf="showFiller" style="margin: 10px;">Reportes</p>
+            </a>
+            <button mat-icon-button (click)="openNavMenu()" matTooltip="Expandir / Colapsar menú" class="bottom">
+                <mat-icon>
+                    {{showFiller ? 'switch_right' : 'switch_left'}}
+                </mat-icon>
+            </button>
+        </mat-nav-list>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <div style="min-height: 100vh;">
+            <router-outlet></router-outlet>
+        </div>
+    </mat-sidenav-content>
+
+</mat-sidenav-container>
